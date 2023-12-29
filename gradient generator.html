@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    .main{
+        width: 1000px;
+        height: 700px;
+        background-color: rgb(24, 24, 24);
+        position: absolute;
+    }
+    .block1{
+        width: 500px;
+        height: 100%;
+        position: relative;
+        float: left;
+
+    }
+    
+    .gradient-box{
+        width: 350px;
+        height: 600px;
+        background-image: linear-gradient(45deg, rgba(0, 0, 255) 10%, rgb(255, 0, 217), rgba(255, 255, 0) 70%);
+        position: relative;
+        top: 50px;
+        left: 50px;
+        border: 5px solid white;
+        border-radius: 10px;
+    }
+    .block2{
+        width: 450px;
+        height: 100%;
+        margin-right: 50px;
+        position: relative;
+        flex-direction: column;
+        /* float: left; */
+        display: flex;
+        justify-content: center;
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .title{
+        width: 350px;
+        height: 30px;
+        background-image: linear-gradient(145deg, rgba(255, 255, 0), rgba(255, 0, 0));
+        color: transparent;
+        background-clip: text;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        margin: 0px auto 0 auto;
+    }
+    label{
+        font-size: 12px;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+    .colorboxes{
+        width: 450px;
+        height: 82px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-content: center;
+        justify-content: center;
+
+    }
+    .color-selector{
+        width: 76px;
+        height: 76px;
+        background-color: rgb(43, 43, 43);
+        outline: 2px solid rgb(77, 77, 77);
+        border-radius: 5px;
+        outline-offset: 2px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        transition: all ease 0.5s;
+    }
+    .color-selector:hover {
+        outline: 3px solid rgb(149, 149, 149);
+        box-shadow: 0 0px 12px 5px rgba(246, 255, 0, 0.7);
+    }
+    /* .color-input{
+        appearance: none;
+        width: 76px;
+        height: 76px;
+        outline: 2px solid rgb(77, 77, 77);
+        border-radius: 5px;
+        outline-offset: 2px;
+        
+    } */
+   
+    .color-mode-boxes{
+        width: 450px;
+        height: 54px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-content: center;
+        justify-content: center;
+
+    }
+    
+    .color-mode-selector{
+        width: 76px;
+        height: 46px;
+        background-color: rgb(24, 24, 24);
+        outline: 2px solid rgb(77, 77, 77);
+        border-radius: 5px;
+        outline-offset: 2px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        color: rgb(77, 77, 77);
+        opacity: 0.5;
+    }
+    .color-mode-selector:hover {
+        opacity: 1;
+        font-weight: 700;
+        outline: 3px solid rgb(149, 149, 149)
+    }
+    .slider{
+        -webkit-appearance: none;
+        appearance: none;
+        background: rgb(77, 77, 77);
+        width: 450px;
+        height: 2px;   
+        opacity: 0.5;
+        -webkit-transition: .2s;
+        transition: opacity .2s;     
+    }
+    .slider:hover {
+        opacity: 1;
+        background: rgb(149, 149, 149);
+    }
+
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: white;
+        cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: white;
+        cursor: pointer;
+    }
+    input[type="color"] {
+  border: 2px solid #ff0000; 
+  background-color: #ff0000;
+  /* border-radius: 5px;  */
+  padding: 0px;
+  outline: none; /* Removes the inner border on selection */
+}
+    
+
+::-webkit-color-swatch{ 
+            padding: 0;
+            border: none;
+            outline: none;
+        }
+
+</style>
+<body>    
+    <div class="main">        
+        <div class="block1">
+            <div class="gradient-box"></div>
+        </div>
+        <div class="block2">
+            <div class="title">
+                <h1 class="title1">Gradient Generator</h1>
+            </div>
+            <p style="color: lightgray;justify-content: center;display: flex;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Beautiful, lush gradients<span style='font: size 8px;'>&#127912;</span></p>
+            <label for="color">Colors:</label>
+            <div class="colorboxes">
+                <div style="background-color: rgb(0, 0, 255);" class="color-selector">
+                    <!-- <input class="color-input"  type="color" id="color" name="color" value="#ff0000"> -->
+                </div>
+                <div style="background-color: rgb(255, 0, 217);" class="color-selector"></div>
+                <div style="background-color: rgb(255, 255, 0);" class="color-selector"></div>
+                <div class="color-selector"><i class="fa fa-plus" style="font-size:28px;color:white"></i></div>
+                <div class="color-selector"></div>
+            </div>
+            <label for="color-mode">Color Mode:</label>
+            <div class="color-mode-boxes">
+                <div class="color-mode-selector">LRGB</div>
+                <div class="color-mode-selector">HSL</div>
+                <div class="color-mode-selector">HSV</div>
+                <div class="color-mode-selector">HCL</div>
+                <div class="color-mode-selector">LAB</div>
+            </div>
+            <label for="precision">Precision:</label>
+            <input min="0" max="10" value="3" type="range" class="slider">
+
+            
+            
+        </div>
+    </div>
+</body>
+</html>
